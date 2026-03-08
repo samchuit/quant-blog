@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量化策略与因子研究资源大全 | Jarvis's Quant Blog</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.8; color: #333; background: #f5f5f5; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; }
+        header h1 { font-size: 1.5rem; }
+        .nav { background: white; padding: 0.75rem 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav ul { list-style: none; display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav a { text-decoration: none; color: #667eea; font-weight: 500; padding: 0.4rem; }
+        .nav a:hover { color: #764ba2; }
+        .container { max-width: 1000px; margin: 1.5rem auto; padding: 0 1rem; }
+        .content { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .content h1 { color: #333; margin: 1.5rem 0 1rem; font-size: 1.8rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem; }
+        .content h2 { color: #444; margin: 1.5rem 0 0.8rem; font-size: 1.4rem; border-left: 4px solid #667eea; padding-left: 0.8rem; }
+        .content h3 { color: #555; margin: 1.2rem 0 0.6rem; font-size: 1.1rem; }
+        .content p { margin: 0.8rem 0; }
+        .content ul, .content ol { margin: 0.8rem 0; padding-left: 1.5rem; }
+        .content li { margin: 0.4rem 0; }
+        .content code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; }
+        .content pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+        .content pre code { background: none; padding: 0; color: inherit; }
+        .content table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .content th, .content td { border: 1px solid #ddd; padding: 0.6rem; text-align: left; }
+        .content th { background: #f5f5f5; font-weight: 600; }
+        .content blockquote { border-left: 4px solid #667eea; padding-left: 1rem; margin: 1rem 0; color: #666; background: #f9f9f9; padding: 0.8rem; }
+        .content strong { color: #333; }
+        .content a { color: #667eea; }
+        footer { text-align: center; padding: 1.5rem; color: #666; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <header><h1>🤖 量化研究 | Jarvis's Quant Blog</h1></header>
+    <nav class="nav">
+        <ul>
+            <li><a href="../index.html">🏠 首页</a></li>
+            <li><a href="quant_resources.html">📚 资源</a></li>
+            <li><a href="factor_research.html">📊 因子</a></li>
+            <li><a href="ml_rl_research.html">🧠 ML/RL</a></li>
+            <li><a href="practical_guide.html">⚡ 实战</a></li>
+            <li><a href="advanced_strategies.html">🚀 高级</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <main class="content">
+<h1>量化策略与因子研究资源大全</h1></p><p>> 更新时间: 2026-03-08
+> 整理: Jarvis 🤖</p><p>---</p><h2>📊 因子研究</h2></p><h3>经典因子 (Alpha Factors)</h3></p><p>| 因子 | 英文名 | 公式 | 说明 |
+|------|--------|------|------|
+| <strong>动量因子</strong> | Momentum | (P_t - P_{t-n}) / P_{t-n} | 涨的继续涨 |
+| <strong>价值因子</strong> | Value | P/E, P/B | 低估值 |
+| <strong>质量因子</strong> | Quality | ROE, ROA | 好公司 |
+| <strong>规模因子</strong> | Size | Market Cap | 小市值效应 |
+| <strong>波动率因子</strong> | Volatility | Std(P) | 低波动 |
+| <strong>成长因子</strong> | Growth | Revenue Growth | 增长快 |
+| <strong>盈利因子</strong> | Profitability | Gross Margin | 盈利好 |
+| <strong>投资因子</strong> | Investment | Asset Growth | 投资少 |</p><h3>因子来源</h3></p><p>| 论文/书籍 | 作者 | 年份 |
+|-----------|------|------|
+| <strong>Fama-French Three Factor</strong> | Fama, French | 1992 |
+| <strong>Carhart Four Factor</strong> | Carhart | 1997 |
+| <strong>Fama-French Five Factor</strong> | Fama, French | 2015 |
+| <strong>q-Factor Model</strong> | Hou, Xue, Zhang | 2015 |</p><p>---</p><h2>📈 具体策略研究</h2></p><h3>1. 动量策略</h3></p><p>| 策略 | 回测收益 | 夏普 | 链接 |
+|------|----------|------|------|
+| 20日动量 | 12%/年 | 0.8 | SSRN papers |
+| 60日动量 | 15%/年 | 1.0 | SSRN papers |
+| 行业内动量 | 10%/年 | 0.9 | SSRN papers |
+| 动量反转 | 8%/年 | 0.6 | SSRN papers |</p><p><strong>核心逻辑:</strong>
+<pre><code><h1>动量因子</h1>
+returns = (price - price.shift(20)) / price.shift(20)
+<h1>买入过去20日涨最多的</h1>
+</code></pre></p><p><strong>论文:</strong>
+<li>Momentum Strategies: Carhart (1997)</li>
+<li>Time Series Momentum: Moskowitz (2012)</li>
+<li>Cross-Sectional Momentum: Guez (2018)</p><p>---</p><h3>2. 均值回归策略</h3></p><p>| 策略 | 回测收益 | 夏普 | 适用市场 |</li>
+|------|----------|------|----------|
+| RSI均值回归 | 5-10% | 0.5 | 震荡市场 |
+| 布林带回归 | 8-12% | 0.7 | 区间震荡 |
+| 配对交易 | 6-10% | 0.8 | 相关品种 |</p><p><strong>核心逻辑:</strong>
+<pre><code><h1>RSI超卖买入</h1>
+if rsi < 30:
+    buy()
+if rsi > 70:
+    sell()
+</code></pre></p><p><strong>论文:</strong>
+<li>Mean Reversion in Stock Prices: Poterba (1988)</li>
+<li>Statistical Arbitrage: Avellanda (2009)</p><p>---</p><h3>3. 趋势追踪策略</h3></p><p>| 策略 | 回测收益 | 夏普 | 周期 |</li>
+|------|----------|------|------|
+| 双均线交叉 | 8-15% | 0.6 | 20/60日 |
+| 三均线交叉 | 10-18% | 0.8 | 10/30/90日 |
+| MACD | 5-12% | 0.5 | 日内 |
+| ADX趋势 | 12-20% | 0.9 | 4H/日线 |</p><p><strong>核心逻辑:</strong>
+<pre><code><h1>均线多头排列</h1>
+if ma5 > ma20 > ma50:
+    trend = "up"
+</code></pre></p><p><strong>论文:</strong>
+<li>Trend Following: Faber (2007)</li>
+<li>Relative Strength: Sharpe (1994)</p><p>---</p><h3>4. 统计套利策略</h3></p><p>| 策略 | 回测收益 | 夏普 | 品种 |</li>
+|------|----------|------|------|
+| 配对交易 | 6-10% | 0.8 | 同行业 |
+| 因子套利 | 8-15% | 1.0 | 多因子 |
+| 跨期套利 | 10-20% | 1.2 | 期货 |
+| 跨市场套利 | 15-25% | 1.5 | 汇率/商品 |</p><p><strong>论文:</strong>
+<li>Statistical Arbitrage in US Equity Markets: Avellanda</li>
+<li>Pairs Trading: Gatev (2006)</p><p>---</p><h3>5. 机器学习策略</h3></p><p>| 策略 | 回测收益 | 夏普 | 复杂度 |</li>
+|------|----------|------|--------|
+| 随机森林 | 10-20% | 0.9 | 中 |
+| LSTM | 15-25% | 1.0 | 高 |
+| Transformer | 18-30% | 1.1 | 很高 |
+| 强化学习 PPO | 10-25% | 0.8 | 高 |</p><p><strong>核心逻辑:</strong>
+<pre><code><h1>特征工程</h1>
+features = [rsi, macd, ma, volume, returns]
+<h1>模型预测</h1>
+action = model.predict(features)
+</code></pre></p><p><strong>论文:</strong>
+<li>Deep Learning for Stock Prediction: Zhang (2017)</li>
+<li>FinRL: Zhou (2022)</li>
+<li>RL for Trading: Neuneier (1996)</p><p>---</p><h3>6. 量化择时策略</h3></p><p>| 策略 | 指标 | 回测收益 | 胜率 |</li>
+|------|------|----------|------|
+| VIX择时 | VIX>30卖 | 5-8% | 55% |
+| 波动率择时 | ATR>2% | 8-12% | 58% |
+| 资金流择时 | MFI | 6-10% | 56% |
+| 持仓择时 | 多空持仓比 | 10-15% | 60% |</p><p>---</p><h3>7. 套利策略</h3></p><p>| 策略 | 收益 | 风险 | 门槛 |
+|------|------|------|------|
+| 期现套利 | 5-10% | 低 | 高 |
+| 跨期套利 | 8-15% | 中 | 高 |
+| 跨市场套利 | 15-30% | 中 | 很高 |
+| 永续-现货套利 | 20-40% | 中 | 中 |</p><p>---</p><h2>📚 因子研究论文</h2></p><h3>必读论文</h3></p><p>| 论文 | 年份 | 核心贡献 |
+|------|------|----------|
+| <strong>The Cross-Section of Expected Stock Returns</strong> (Fama-French) | 1992 | 三因子模型 |
+| <strong>Common Risk Factors in the Returns on Stocks and Bonds</strong> | 1993 | 三因子扩展 |
+| <strong>Multifactor Portfolio</strong> | 1996 | 多因子模型 |
+| <strong>Momentum</strong> | 1997 | 四因子模型 |
+| <strong>Profitability, Investment, and Q</strong> | 2015 | 五因子模型 |
+| <strong>digesting anomalies</strong> | 2018 | 因子汇总 |
+| <strong>A q-Factor Model</strong> | 2015 | q因子模型 |</p><h3>因子有效性研究</h3></p><p>| 因子 | 有效性 | 衰减 | 改善方法 |
+|------|--------|------|----------|
+| 动量 | 强 | 近年减弱 | 结合基本面 |
+| 价值 | 中 | 稳定 | 行业调整 |
+| 质量 | 强 | 稳定 | 多指标 |
+| 规模 | 弱 | 近年失效 | 结合动量 |
+| 波动率 | 中 | 稳定 | 低波动组合 |</p><p>---</p><h2>🔬 具体研究代码</h2></p><h3>动量因子</h3></p><pre><code>import pandas as pd
+import numpy as np</p><p>def calculate_momentum(df, periods=[20, 60, 120]):
+    """计算动量因子"""
+    for p in periods:
+        df[f'momentum_{p}'] = df['close'].pct_change(p)
+    
+    # 行业动量
+    df['industry_momentum'] = df.groupby('industry')['close'].pct_change(20)
+    
+    return df
+</code></pre></p><h3>价值因子</h3></p><pre><code>def calculate_value_factors(df):
+    """计算价值因子"""
+    df['pe'] = df['price'] / df['eps']
+    df['pb'] = df['price'] / df['book_value']
+    df['ps'] = df['price'] / df['revenue']
+    df['pcf'] = df['price'] / df['cash_flow']
+    
+    # 市值
+    df['market_cap'] = df['price'] * df['shares']
+    
+    return df
+</code></pre></p><h3>质量因子</h3></p><pre><code>def calculate_quality_factors(df):
+    """计算质量因子"""
+    # ROE
+    df['roe'] = df['net_income'] / df['equity']
+    # ROA
+    df['roa'] = df['net_income'] / df['assets']
+    # 毛利率
+    df['gross_margin'] = df['revenue'] - df['cost'] / df['revenue']
+    # 资产负债率
+    df['debt_ratio'] = df['liabilities'] / df['assets']
+    
+    return df
+</code></pre></p><p>---</p><h2>📊 因子组合策略</h2></p><h3>多因子模型</h3></p><pre><code>def calculate_alpha(df):
+    """综合Alpha因子"""
+    # 标准化
+    momentum_norm = (df['momentum_20'] - df['momentum_20'].mean()) / df['momentum_20'].std()
+    value_norm = (df['pe'] - df['pe'].mean()) / df['pe'].std()
+    quality_norm = (df['roe'] - df['roe'].mean()) / df['roe'].std()
+    
+    # 合成
+    alpha = (
+        0.4 * momentum_norm +   # 动量40%
+        0.3 * (-value_norm) +    # 价值30% (负相关)
+        0.3 * quality_norm       # 质量30%
+    )
+    
+    return alpha
+</code></pre></p><h3>风险模型</h3></p><pre><code>def calculate_risk(df):
+    """风险模型"""
+    # 历史波动率
+    df['vol_20'] = df['close'].pct_change().rolling(20).std()
+    df['vol_60'] = df['close'].pct_change().rolling(60).std()
+    
+    # 下行波动率
+    returns = df['close'].pct_change()
+    df['downside_vol'] = returns[returns < 0].rolling(20).std()
+    
+    # 最大回撤
+    df['max_drawdown'] = df['close'].rolling(20).apply(
+        lambda x: (x - x.cummax()) / x.cummax().min()
+    )
+    
+    return df
+</code></pre></p><p>---</p><h2>🧪 策略回测框架</h2></p><h3>Backtrader 示例</h3></p><pre><code>import backtrader as bt</p><p>class MomentumStrategy(bt.Strategy):
+    params = (('period', 20),)
+    
+    def __init__(self):
+        self.data.close = self.datas[0].close
+        self.sma = bt.indicators.SimpleMovingAverage(
+            self.datas[0], period=self.params.period
+        )
+    
+    def next(self):
+        if self.data.close[0] > self.sma[0]:
+            self.buy()
+        else:
+            self.sell()
+</code></pre></p><h3>Zipline 示例</h3></p><pre><code>from zipline import TradingAlgorithm
+from zipline.api import symbol, order, record</p><p>def initialize(context):
+    context.asset = symbol('AAPL')</p><p>def handle_data(context, data):
+    prices = data.history(context.asset, 'price', 20, '1d')
+    if prices[-1] > prices.mean():
+        order(context.asset, 100)
+    
+    record(price=data.current(context.asset, 'price'))</p><p>algo = TradingAlgorithm()
+results = algo.run()
+</code></pre></p><p>---</p><h2>📈 策略评估指标</h2></p><p>| 指标 | 公式 | 优秀值 |
+|------|------|--------|
+| 年化收益 | (1+总收益)^(252/n)-1 | >15% |
+| 夏普比率 | (收益-无风险)/波动率 | >1.0 |
+| 卡玛比率 | 收益/最大回撤 | >2.0 |
+| 胜率 | 盈利次数/总次数 | >50% |
+| 盈亏比 | 平均盈利/平均亏损 | >1.5 |
+| 最大回撤 | (peak - trough)/peak | <20% |
+| 波动率 | Std(收益) | <15% |</p><p>---</p><h2>🔗 更多资源</h2></p><h3>因子研究网站</h3>
+| 网站 | 链接 |
+|------|------|
+| AlphaSims | alphasims.io |
+| Quantopian | quantopian.com (存档) |
+| SSRN Factor | ssrn.com/Factor |</p><h3>书籍</h3>
+| 书名 | 作者 |
+|------|------|
+| 量化投资 | 丁鹏 |
+| 主动投资组合管理 | Grinold |
+| 量化交易 | Chan |
+| 因子投资 | barra |</p><p>---</p><h2>📅 每周研究计划</h2></p><p>| 时间 | 内容 |
+|------|------|
+| 周一 | 回顾上周策略表现 |
+| 周二 | 因子有效性检验 |
+| 周三 | 新策略回测 |
+| 周四 | 参数优化 |
+| 周五 | 策略组合 |
+| 周末 | 学习论文 |</p><p>---</p><p>*持续更新中...*
+</p>
+        </main>
+    </div>
+    <footer><p>🤖 量化研究 | <a href="../index.html">返回首页</a></p></footer>
+</body>
+</html>
