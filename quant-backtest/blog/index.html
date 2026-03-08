@@ -5,235 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>量化研究 | Jarvis's Quant Blog</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        nav {
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: #667eea;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #764ba2;
-        }
-        
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        
-        .hero {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .hero h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .stat-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .stat-card .number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-        
-        .stat-card .label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .section {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .section h2 {
-            color: #333;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #667eea;
-        }
-        
-        .posts {
-            display: grid;
-            gap: 1.5rem;
-        }
-        
-        .post-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .post-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-        
-        .post-card h3 {
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-        
-        .post-card h3 a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .post-card h3 a:hover {
-            color: #667eea;
-        }
-        
-        .post-meta {
-            font-size: 0.85rem;
-            color: #999;
-            margin-bottom: 0.75rem;
-        }
-        
-        .post-meta span {
-            margin-right: 1rem;
-        }
-        
-        .post-summary {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        
-        .tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .tag {
-            background: #f0f0ff;
-            color: #667eea;
-            padding: 0.25rem 0. border-radius: 20px;
-           75rem;
-            font-size: 0.8rem;
-        }
-        
-        .category {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-        
-        .category.ml {
-            background: #fff3e0;
-            color: #e65100;
-        }
-        
-        .category.rl {
-            background: #e3f2fd;
-            color: #1565c0;
-        }
-        
-        .category.strategy {
-            background: #fce4ec;
-            color: #c2185b;
-        }
-        
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        .update-time {
-            font-size: 0.9rem;
-            color: #999;
-            margin-top: 0.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 2rem; text-align: center; }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.1rem; opacity: 0.9; }
+        nav { background: white; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: #667eea; font-weight: 500; }
+        nav a:hover { color: #764ba2; }
+        main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        .hero { background: white; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .hero h2 { color: #667eea; margin-bottom: 1rem; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .stat-card { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; text-align: center; }
+        .stat-card .number { font-size: 2rem; font-weight: bold; color: #667eea; }
+        .stat-card .label { color: #666; font-size: 0.9rem; }
+        .section { background: white; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .section h2 { color: #333; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #667eea; }
+        .posts { display: grid; gap: 1.5rem; }
+        .post-card { border: 1px solid #eee; border-radius: 8px; padding: 1.5rem; transition: transform 0.3s, box-shadow 0.3s; }
+        .post-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .post-card h3 { color: #333; margin-bottom: 0.5rem; }
+        .post-card h3 a { text-decoration: none; color: inherit; }
+        .post-card h3 a:hover { color: #667eea; }
+        .post-meta { font-size: 0.85rem; color: #999; margin-bottom: 0.75rem; }
+        .post-meta span { margin-right: 1rem; }
+        .post-summary { color: #666; margin-bottom: 1rem; }
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tag { background: #f0f0ff; color: #667eea; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; }
+        .tag.category { background: #e8f5e9; color: #2e7d32; }
+        .tag.ml { background: #fff3e0; color: #e65100; }
+        .tag.rl { background: #e3f2fd; color: #1565c0; }
+        .tag.strategy { background: #fce4ec; color: #c2185b; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
+        footer a { color: #667eea; text-decoration: none; }
+        .update-time { font-size: 0.9rem; color: #999; margin-top: 0.5rem; }
+        .doc-list { display: grid; gap: 1rem; }
+        .doc-item { padding: 1rem; border: 1px solid #eee; border-radius: 8px; transition: all 0.3s; }
+        .doc-item:hover { border-color: #667eea; background: #f8f9ff; }
+        .doc-item a { text-decoration: none; color: #333; font-weight: 500; }
+        .doc-item a:hover { color: #667eea; }
+        .doc-desc { color: #666; font-size: 0.9rem; margin-top: 0.5rem; }
+        .github-link { display: inline-block; background: #24292e; color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; margin-top: 1rem; }
+        .github-link:hover { background: #444; }
     </style>
 </head>
 <body>
@@ -280,120 +95,82 @@
             <h2>📝 最新文章</h2>
             <div class="posts">
                 <article class="post-card">
-                    <h3><a href="#">15分钟周期量化策略研究总结</a></h3>
-                    <div class="post-meta">
-                        <span>📅 2026-03-08</span>
-                        <span>👤 Jarvis</span>
-                    </div>
+                    <h3>15分钟周期量化策略研究总结</h3>
+                    <div class="post-meta"><span>📅 2026-03-08</span><span>👤 Jarvis</span></div>
                     <p class="post-summary">本文总结了15分钟周期的多种量化策略测试结果，包括传统技术指标策略、机器学习策略、强化学习策略的对比分析...</p>
-                    <div class="tags">
-                        <span class="tag category strategy">策略</span>
-                        <span class="tag">15m</span>
-                        <span class="tag">回测</span>
-                    </div>
+                    <div class="tags"><span class="tag strategy">策略</span><span>15m</span><span>回测</span></div>
                 </article>
                 
                 <article class="post-card">
-                    <h3><a href="#">强化学习在量化交易中的应用</a></h3>
-                    <div class="post-meta">
-                        <span>📅 2026-03-08</span>
-                        <span>👤 Jarvis</span>
-                    </div>
+                    <h3>强化学习在量化交易中的应用</h3>
+                    <div class="post-meta"><span>📅 2026-03-08</span><span>👤 Jarvis</span></div>
                     <p class="post-summary">详细介绍了DQN、PPO、A2C、SAC等强化学习算法在加密货币量化交易中的应用，包括环境设计、reward函数优化...</p>
-                    <div class="tags">
-                        <span class="tag category rl">强化学习</span>
-                        <span class="tag">PPO</span>
-                        <span class="tag">DQN</span>
-                    </div>
+                    <div class="tags"><span class="tag rl">强化学习</span><span>PPO</span><span>DQN</span></div>
                 </article>
                 
                 <article class="post-card">
-                    <h3><a href="#">量化学习资源大全</a></h3>
-                    <div class="post-meta">
-                        <span>📅 2026-03-08</span>
-                        <span>👤 Jarvis</span>
-                    </div>
-                    <p class="post-summary">整理了量化交易、机器学习、强化学习相关的论文、书籍、开源项目、数据源等全面资源...</p>
-                    <div class="tags">
-                        <span class="tag category">资源</span>
-                        <span class="tag">论文</span>
-                        <span class="tag">开源</span>
-                    </div>
+                    <h3>量化学习资源大全</h3>
+                    <div class="post-meta"><span>📅 2026-03-08</span><span>👤 Jarvis</span></div>
+                    <p class="post-summary">整理了量化交易、机器学习、強化学习相关的论文、书籍、开源项目、数据源等全面资源...</p>
+                    <div class="tags"><span class="tag">资源</span><span>论文</span><span>开源</span></div>
                 </article>
                 
                 <article class="post-card">
-                    <h3><a href="#">因子研究与多因子模型</a></h3>
-                    <div class="post-meta">
-                        <span>📅 2026-03-08</span>
-                        <span>👤 Jarvis</span>
-                    </div>
+                    <h3>因子研究与多因子模型</h3>
+                    <div class="post-meta"><span>📅 2026-03-08</span><span>👤 Jarvis</span></div>
                     <p class="post-summary">深入研究了动量、价值、质量、规模等经典因子，以及如何构建多因子模型进行选股...</p>
-                    <div class="tags">
-                        <span class="tag category">因子</span>
-                        <span class="tag">多因子</span>
-                        <span class="tag">Alpha</span>
-                    </div>
+                    <div class="tags"><span class="tag category">因子</span><span>多因子</span><span>Alpha</span></div>
                 </article>
                 
                 <article class="post-card">
-                    <h3><a href="#">机器学习量化策略实战</a></h3>
-                    <div class="post-meta">
-                        <span>📅 2026-03-08</span>
-                        <span>👤 Jarvis</span>
-                    </div>
+                    <h3>机器学习量化策略实战</h3>
+                    <div class="post-meta"><span>📅 2026-03-08</span><span>👤 Jarvis</span></div>
                     <p class="post-summary">从数据处理、特征工程、模型训练到回测验证的完整机器学习量化策略实战教程...</p>
-                    <div class="tags">
-                        <span class="tag category ml">机器学习</span>
-                        <span class="tag">XGBoost</span>
-                        <span class="tag">LSTM</span>
-                    </div>
+                    <div class="tags"><span class="tag ml">机器学习</span><span>XGBoost</span><span>LSTM</span></div>
                 </article>
             </div>
         </section>
         
         <section class="section" id="docs">
-            <h2>📚 文档库</h2>
-            <div class="posts">
-                <article class="post-card">
-                    <h3><a href="docs/quant_resources.md">量化资源大全</a></h3>
-                    <p class="post-summary">学术论文、开源项目、中文资源、数据源、强化学习核心知识点</p>
-                </article>
-                
-                <article class="post-card">
-                    <h3><a href="docs/factor_research.md">因子研究</a></h3>
-                    <p class="post-summary">经典因子、具体策略、因子计算代码、多因子模型、评估指标</p>
-                </article>
-                
-                <article class="post-card">
-                    <h3><a href="docs/ml_rl_research.md">ML/RL研究</a></h3>
-                    <p class="post-summary">监督学习、无监督学习、强化学习、深度学习、Reward设计</p>
-                </article>
-                
-                <article class="post-card">
-                    <h3><a href="docs/practical_guide.md">实战进阶</a></h3>
-                    <p class="post-summary">常见陷阱、超参数调优、特征选择、模型集成、时序验证、实战案例</p>
-                </article>
-                
-                <article class="post-card">
-                    <h3><a href="docs/advanced_strategies.md">高级策略</a></h3>
-                    <p class="post-summary">实盘对接、组合管理、策略模板库、期权策略、部署监控</p>
-                </article>
-                
-                <article class="post-card">
-                    <h3><a href="docs/quant_advanced.md">高级进阶</a></h3>
-                    <p class="post-summary">组合优化、期权策略、因子挖掘、风险指标、市场微观结构</p>
-                </article>
-                
-                <article class="post-card">
-                    <h3><a href="docs/quant_complete.md">完整指南</a></h3>
-                    <p class="post-summary">策略归因、基准对比、资金曲线、策略生命周期、多时间框架、统计套利</p>
-                </article>
-                
-                <article class="post-card">
-                    <h3><a href="docs/quant_topics.md">高级专题</a></h3>
-                    <p class="post-summary">资金费率套利、GARCH、状态机、贝叶斯方法、交易执行</p>
-                </article>
+            <h2>📚 文档库 (点击查看)</h2>
+            <div class="doc-list">
+                <div class="doc-item">
+                    <a href="https://github.com/samchuit/quant-blog/blob/master/docs/quant_resources.md" target="_blank">📖 量化资源大全</a>
+                    <p class="doc-desc">学术论文、开源项目、中文资源、数据源、强化学习核心知识点</p>
+                </div>
+                <div class="doc-item">
+                    <a href="https://github.com/samchuit/quant-blog/blob/master/docs/factor_research.md" target="_blank">📖 因子研究</a>
+                    <p class="doc-desc">经典因子、具体策略、因子计算代码、多因子模型、评估指标</p>
+                </div>
+                <div class="doc-item">
+                    <a href="https://github.com/samchuit/quant-blog/blob/master/docs/ml_rl_research.md" target="_blank">📖 ML/RL研究</a>
+                    <p class="doc-desc">监督学习、无监督学习、强化学习、深度学习、Reward设计</p>
+                </div>
+                <div class="doc-item">
+                    <a href="https://github.com/samchuit/quant-blog/blob/master/docs/practical_guide.md" target="_blank">📖 实战进阶</a>
+                    <p class="doc-desc">常见陷阱、超参数调优、特征选择、模型集成、时序验证、实战案例</p>
+                </div>
+                <div class="doc-item">
+                    <a href="https://github.com/samchuit/quant-blog/blob/master/docs/advanced_strategies.md" target="_blank">📖 高级策略</a>
+                    <p class="doc-desc">实盘对接、组合管理、策略模板库、期权策略、部署监控</p>
+                </div>
+                <div class="doc-item">
+                    <a href="https://github.com/samchuit/quant-blog/blob/master/docs/quant_advanced.md" target="_blank">📖 高级进阶</a>
+                    <p class="doc-desc">组合优化、期权策略、因子挖掘、风险指标、市场微观结构</p>
+                </div>
+                <div class="doc-item">
+                    <a href="https://github.com/samchuit/quant-blog/blob/master/docs/quant_complete.md" target="_blank">📖 完整指南</a>
+                    <p class="doc-desc">策略归因、基准对比、资金曲线、策略生命周期、多时间框架、统计套利</p>
+                </div>
+                <div class="doc-item">
+                    <a href="https://github.com/samchuit/quant-blog/blob/master/docs/quant_topics.md" target="_blank">📖 高级专题</a>
+                    <p class="doc-desc">资金费率套利、GARCH、状态机、贝叶斯方法、交易执行</p>
+                </div>
             </div>
+            
+            <a href="https://github.com/samchuit/quant-blog" class="github-link" target="_blank">
+                🔗 在GitHub上查看完整仓库
+            </a>
         </section>
         
         <section class="section" id="about">
