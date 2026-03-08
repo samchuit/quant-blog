@@ -7,58 +7,41 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #333; background: #f5f5f5; }
-        
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; position: relative; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; }
         header h1 { font-size: 2rem; }
         header .subtitle { opacity: 0.9; margin-top: 0.5rem; }
-        
         .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
-        
         .nav { background: white; padding: 0.75rem 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
         .nav ul { list-style: none; display: flex; gap: 1.5rem; flex-wrap: wrap; }
         .nav a { text-decoration: none; color: #667eea; font-weight: 500; padding: 0.5rem; }
         .nav a:hover { color: #764ba2; }
-        
         .grid { display: grid; grid-template-columns: 250px 1fr; gap: 1.5rem; margin-top: 1.5rem; }
-        
         .sidebar { background: white; border-radius: 8px; padding: 1rem; height: fit-content; position: sticky; top: 80px; }
         .sidebar h3 { color: #667eea; margin-bottom: 1rem; font-size: 1rem; }
         .sidebar ul { list-style: none; }
         .sidebar li { margin-bottom: 0.5rem; }
         .sidebar a { text-decoration: none; color: #555; padding: 0.4rem 0.6rem; display: block; border-radius: 4px; }
         .sidebar a:hover { background: #f0f0ff; color: #667eea; }
-        .sidebar a.active { background: #667eea; color: white; }
-        
         .content { background: white; border-radius: 8px; padding: 2rem; min-height: 500px; }
-        
-        .doc-content { line-height: 1.8; }
         .doc-content h1 { color: #333; margin: 1.5rem 0 1rem; font-size: 1.8rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem; }
         .doc-content h2 { color: #444; margin: 1.5rem 0 0.8rem; font-size: 1.4rem; }
-        .doc-content h3 { color: #555; margin: 1.2rem 0 0.6rem; font-size: 1.1rem; }
         .doc-content p { margin: 0.8rem 0; }
-        .doc-content ul, .doc-content ol { margin: 0.8rem 0; padding-left: 1.5rem; }
-        .doc-content li { margin: 0.3rem 0; }
-        .doc-content code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 3px; font-family: monospace; font-size: 0.9em; }
-        .doc-content pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-        .doc-content pre code { background: none; padding: 0; color: inherit; }
-        .doc-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-        .doc-content th, .doc-content td { border: 1px solid #ddd; padding: 0.6rem; text-align: left; }
-        .doc-content th { background: #f5f5f5; font-weight: 600; }
-        .doc-content tr:hover { background: #f9f9f9; }
-        .doc-content blockquote { border-left: 4px solid #667eea; padding-left: 1rem; margin: 1rem 0; color: #666; background: #f9f9f9; padding: 0.8rem; }
-        .doc-content strong { color: #333; }
-        
+        .doc-content ul { margin: 0.8rem 0; padding-left: 1.5rem; }
+        .doc-content li { margin: 0.5rem 0; }
+        .doc-content a { color: #667eea; text-decoration: none; }
+        .doc-content a:hover { text-decoration: underline; }
+        .post-link { display: block; padding: 1rem; border: 1px solid #eee; border-radius: 8px; margin-bottom: 0.8rem; text-decoration: none; color: inherit; transition: all 0.3s; }
+        .post-link:hover { border-color: #667eea; background: #f8f9ff; transform: translateX(5px); }
+        .post-link h3 { color: #333; margin-bottom: 0.3rem; }
+        .post-link .desc { color: #666; font-size: 0.9rem; }
+        .post-link .tags { margin-top: 0.5rem; }
+        .post-link .tag { display: inline-block; background: #f0f0ff; color: #667eea; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; margin-right: 0.3rem; }
         .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
         .stat-box { background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); padding: 1.5rem; border-radius: 8px; text-align: center; }
         .stat-box .num { font-size: 2rem; font-weight: bold; color: #667eea; }
         .stat-box .lbl { color: #666; font-size: 0.9rem; }
-        
         footer { text-align: center; padding: 2rem; color: #666; margin-top: 2rem; }
-        
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-            .sidebar { position: static; }
-        }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .sidebar { position: static; } }
     </style>
 </head>
 <body>
@@ -98,54 +81,72 @@
                 <div class="doc-content">
                     <h1>📊 量化研究博客</h1>
                     
-                    <p>欢迎来到Jarvis的量化研究博客！这里记录了量化交易策略的研究与学习成果。</p>
+                    <p>欢迎来到Jarvis的量化研究博客！点击下方文章或左侧目录查看详细内容。</p>
                     
                     <div class="hero-stats">
-                        <div class="stat-box">
-                            <div class="num">8</div>
-                            <div class="lbl">📚 文档数量</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="num">130K+</div>
-                            <div class="lbl">📝 字数统计</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="num">10+</div>
-                            <div class="lbl">🔬 测试策略</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="num">5</div>
-                            <div class="lbl">⭐ 最佳策略</div>
-                        </div>
+                        <div class="stat-box"><div class="num">8</div><div class="lbl">📚 文档数量</div></div>
+                        <div class="stat-box"><div class="num">130K+</div><div class="lbl">📝 字数统计</div></div>
+                        <div class="stat-box"><div class="num">10+</div><div class="lbl">🔬 测试策略</div></div>
+                        <div class="stat-box"><div class="num">5</div><div class="lbl">⭐ 最佳策略</div></div>
                     </div>
                     
-                    <h2>📝 最新文章</h2>
-                    <ul>
-                        <li><strong>15分钟周期量化策略研究总结</strong> - 传统技术指标、机器学习、强化学习策略对比分析</li>
-                        <li><strong>强化学习在量化交易中的应用</strong> - DQN、PPO、A2C、SAC算法详解</li>
-                        <li><strong>量化学习资源大全</strong> - 论文、开源项目、数据源全面整理</li>
-                        <li><strong>因子研究与多因子模型</strong> - 动量、价值、质量等经典因子</li>
-                        <li><strong>机器学习量化策略实战</strong> - 完整项目流程</li>
-                    </ul>
+                    <h2>📝 点击阅读文章</h2>
                     
-                    <h2>📚 文档库</h2>
-                    <p>点击左侧菜单或上方导航查看各个主题的详细文档内容。</p>
+                    <a href="docs/practical_guide.html" class="post-link">
+                        <h3>⚡ 实战进阶指南</h3>
+                        <p class="desc">常见陷阱、超参数调优、特征选择、模型集成、时序验证、实战案例</p>
+                        <div class="tags"><span class="tag">实战</span><span class="tag">调优</span><span class="tag">验证</span></div>
+                    </a>
                     
-                    <h2>🔄 持续更新</h2>
-                    <p>每周一更新研究进展，每月发布策略报告。所有内容都会同步更新到博客网站。</p>
+                    <a href="docs/advanced_strategies.html" class="post-link">
+                        <h3>🚀 高级策略</h3>
+                        <p class="desc">实盘对接、组合管理、策略模板库、期权策略、部署监控</p>
+                        <div class="tags"><span class="tag">实盘</span><span class="tag">组合</span><span class="tag">期权</span></div>
+                    </a>
                     
-                    <h2>📂 相关链接</h2>
-                    <ul>
-                        <li><a href="https://github.com/samchuit/quant-trading-strategy-" target="_blank">GitHub 完整代码</a></li>
-                        <li><a href="https://github.com/samchuit/quant-blog" target="_blank">博客仓库</a></li>
-                    </ul>
+                    <a href="docs/quant_advanced.html" class="post-link">
+                        <h3>📈 高级进阶</h3>
+                        <p class="desc">组合优化、期权策略、因子挖掘、风险指标、市场微观结构</p>
+                        <div class="tags"><span class="tag">优化</span><span class="tag">因子</span><span class="tag">风险</span></div>
+                    </a>
+                    
+                    <a href="docs/ml_rl_research.html" class="post-link">
+                        <h3>🧠 ML/RL研究</h3>
+                        <p class="desc">监督学习、无监督学习、强化学习、深度学习、Reward设计</p>
+                        <div class="tags"><span class="tag">机器学习</span><span class="tag">强化学习</span><span class="tag">深度学习</span></div>
+                    </a>
+                    
+                    <a href="docs/factor_research.html" class="post-link">
+                        <h3>📊 因子研究</h3>
+                        <p class="desc">经典因子、具体策略、因子计算代码、多因子模型、评估指标</p>
+                        <div class="tags"><span class="tag">因子</span><span class="tag">多因子</span><span class="tag">Alpha</span></div>
+                    </a>
+                    
+                    <a href="docs/quant_resources.html" class="post-link">
+                        <h3>📚 量化资源大全</h3>
+                        <p class="desc">学术论文、开源项目、中文资源、数据源、强化学习核心知识点</p>
+                        <div class="tags"><span class="tag">资源</span><span class="tag">论文</span><span class="tag">开源</span></div>
+                    </a>
+                    
+                    <a href="docs/quant_complete.html" class="post-link">
+                        <h3>📖 完整指南</h3>
+                        <p class="desc">策略归因、基准对比、资金曲线、策略生命周期、多时间框架、统计套利</p>
+                        <div class="tags"><span class="tag">归因</span><span class="tag">组合</span><span class="tag">套利</span></div>
+                    </a>
+                    
+                    <a href="docs/quant_topics.html" class="post-link">
+                        <h3>🔬 高级专题</h3>
+                        <p class="desc">资金费率套利、GARCH、状态机、贝叶斯方法、交易执行</p>
+                        <div class="tags"><span class="tag">套利</span><span class="tag">统计</span><span class="tag">执行</span></div>
+                    </a>
+                    
                 </div>
             </main>
         </div>
     </div>
     
     <footer>
-        <p>🤖 量化研究 | Jarvis's Quant Blog | 最后更新: 2026-03-08</p>
+        <p>🤖 量化研究 | Jarvis's Quant Blog | <a href="https://github.com/samchuit/quant-blog" style="color:#667eea;">GitHub</a></p>
     </footer>
 </body>
 </html>
