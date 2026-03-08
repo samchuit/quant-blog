@@ -1,6 +1,0 @@
-{
-  "outputDirectory": "blog",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/blog/$1" }
-  ]
-}
